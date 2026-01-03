@@ -1,0 +1,251 @@
+{
+  "site": {
+    "name": "STRIDE BY MARLOW",
+    "logo": "SM",
+    "copyright": "© 2025 Stride by Marlow. All rights reserved."
+  },
+  "navigation": [
+    { "label": "Home", "href": "/" },
+    { "label": "Shop", "href": "/shop" },
+    { "label": "About", "href": "/#about" },
+    { "label": "Contact", "href": "/#contact" }
+  ],
+  "hero": {
+    "title": "Step into Style with Stride by Marlow",
+    "description": "Discover the perfect blend of comfort and fashion with our premium sneaker collection.",
+    "cta": "Shop Now",
+    "image": "https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=2070&auto=format&fit=crop"
+  },
+  "about": {
+    "title": "About Stride by Marlow",
+    "content": [
+      "At Stride by Marlow, we believe that every step should be taken in style and comfort. Our passion for sneakers drives us to curate a collection that blends cutting-edge design with unparalleled comfort.",
+      "Founded by sneaker enthusiasts, we understand the importance of quality footwear in your daily life. Whether you're hitting the gym, exploring the city, or making a fashion statement, we've got the perfect pair for you."
+    ],
+    "cta": "Learn More",
+    "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1974&auto=format&fit=crop"
+  },
+  "newsletter": {
+    "title": "Stay in the Loop",
+    "description": "Subscribe to our newsletter for exclusive deals, new releases, and sneaker news.",
+    "placeholder": "Enter your email",
+    "button": "Subscribe"
+  },
+  "footer": {
+    "description": "Step into style, stride with confidence.",
+    "quickLinks": [
+      { "label": "Home", "href": "#home" },
+      { "label": "Shop", "href": "#shop" },
+      { "label": "About", "href": "#about" },
+      { "label": "Contact", "href": "#contact" }
+    ],
+    "customerService": [
+      { "label": "Shipping & Returns", "href": "#" },
+      { "label": "FAQ", "href": "#" },
+      { "label": "Track Your Order", "href": "#" }
+    ],
+    "contact": {
+      "address": "Nairobi, zameti House, First Floor, Stall No: A11",
+      "phone": "+254 757******4",
+      "email": "info@stridemarlow.com",
+      "hours": "Mon - Fri: 9:00 AM - 6:00 PM"
+    },
+    "payment": {
+      "title": "Payment Details",
+      "methods": [
+        { "name": "M-PESA", "type": "mobile", "details": "Paybill: 7*******, Account: 07*******6" },
+        { "name": "Visa", "type": "card" },
+        { "name": "Mastercard", "type": "card" },
+        { "name": "PayPal", "type": "online" }
+      ]
+    }
+  },
+  "products": [
+    {
+      "id": 1,
+      "name": "Nike Air Max 270",
+      "brand": "Nike",
+      "price": 15999,
+      "currency": "KES",
+      "size": [40, 41, 42, 43, 44],
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+      "id": 2,
+      "name": "Adidas Ultraboost 21",
+      "brand": "Adidas",
+      "price": 18999,
+      "currency": "KES",
+      "size": [39, 40, 41, 42],
+      "image": "https://images.unsplash.com/photo-1608231387042-66d1773070a5?q=80&w=1974&auto=format&fit=crop"
+    },
+    {
+      "id": 3,
+      "name": "Puma RS-X³ Puzzle",
+      "brand": "Puma",
+      "price": 12999,
+      "currency": "KES",
+      "size": [41, 42, 43, 44, 45],
+      "image": "https://images.unsplash.com/photo-1597043530274-08018e6a6d6a?q=80&w=2069&auto=format&fit=crop"
+    },
+    {
+      "id": 4,
+      "name": "Reebok Classic Leather",
+      "brand": "Reebok",
+      "price": 8999,
+      "currency": "KES",
+      "size": [38, 39, 40, 41, 42],
+      "image": "https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=2071&auto=format&fit=crop"
+    },
+    {
+      "id": 5,
+      "name": "Air Jordan 1 Retro",
+      "brand": "Nike",
+      "price": 22500,
+      "currency": "KES",
+      "size": [42, 43, 44],
+      "image": "https://images.unsplash.com/photo-1552066334-9a6045b65762?q=80&w=1974&auto=format&fit=crop"
+    },
+    {
+      "id": 6,
+      "name": "New Balance 574",
+      "brand": "New Balance",
+      "price": 11500,
+      "currency": "KES",
+      "size": [40, 41, 42, 43],
+      "image": "https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=2071&auto=format&fit=crop"
+    },
+    {
+      "id": 7,
+      "name": "Vans Old Skool",
+      "brand": "Vans",
+      "price": 6500,
+      "currency": "KES",
+      "size": [36, 37, 38, 39, 40, 41, 42],
+      "image": "https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=2080&auto=format&fit=crop"
+    },
+    {
+      "id": 8,
+      "name": "Converse Chuck Taylor",
+      "brand": "Converse",
+      "price": 5999,
+      "currency": "KES",
+      "size": [35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
+      "image": "https://images.unsplash.com/photo-1512374382149-4332c6c77d61?q=80&w=2012&auto=format&fit=crop"
+    },
+    {
+      "id": 9,
+      "name": "Asics Gel-Lyte III",
+      "brand": "Asics",
+      "price": 14500,
+      "currency": "KES",
+      "size": [41, 42, 43],
+      "image": "https://images.unsplash.com/photo-1584735175315-9d5df23860e6?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+      "id": 10,
+      "name": "Under Armour Curry 8",
+      "brand": "Under Armour",
+      "price": 19500,
+      "currency": "KES",
+      "size": [42, 43, 44, 45],
+      "image": "https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=2071&auto=format&fit=crop"
+    },
+    {
+      "id": 11,
+      "name": "Puma Suede Classic",
+      "brand": "Puma",
+      "price": 9500,
+      "currency": "KES",
+      "size": [38, 39, 40, 41, 42],
+      "image": "https://images.unsplash.com/photo-1608231387042-66d1773070a5?q=80&w=1974&auto=format&fit=crop"
+    },
+    {
+      "id": 12,
+      "name": "Nike Dunk Low",
+      "brand": "Nike",
+      "price": 18500,
+      "currency": "KES",
+      "size": [40, 41, 42, 43, 44],
+      "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1974&auto=format&fit=crop"
+    },
+    {
+      "id": 13,
+      "name": "Adidas Forum Low",
+      "brand": "Adidas",
+      "price": 14000,
+      "currency": "KES",
+      "size": [39, 40, 41, 42],
+      "image": "https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+      "id": 14,
+      "name": "New Balance 990",
+      "brand": "New Balance",
+      "price": 28000,
+      "currency": "KES",
+      "size": [41, 42, 43, 44, 45],
+      "image": "https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=2071&auto=format&fit=crop"
+    }
+  ],
+  "admin": {
+    "credentials": {
+      "email": "admin@stridemarlow.com",
+      "password": "admin123"
+    },
+    "profile": {
+      "name": "Admin User",
+      "email": "admin@stridemarlow.com"
+    },
+    "dashboard": {
+      "stats": {
+        "totalSales": 28000,
+        "averageOrderValue": 2500,
+        "totalOrders": 1234,
+        "totalCustomers": 5678
+      },
+      "salesData": [
+        { "month": "Jan", "sales": 4000 },
+        { "month": "Feb", "sales": 3000 },
+        { "month": "Mar", "sales": 5000 },
+        { "month": "Apr", "sales": 4500 },
+        { "month": "May", "sales": 6000 },
+        { "month": "Jun", "sales": 5500 }
+      ]
+    },
+    "orders": [
+      {
+        "id": 1,
+        "customer": "John Doe",
+        "total": 15999,
+        "status": "Processing"
+      },
+      {
+        "id": 2,
+        "customer": "Jane Smith",
+        "total": 18999,
+        "status": "Shipped"
+      },
+      {
+        "id": 3,
+        "customer": "Bob Johnson",
+        "total": 12999,
+        "status": "Delivered"
+      }
+    ],
+    "customers": [
+      {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john@example.com",
+        "phone": "+254712345678"
+      },
+      {
+        "id": 2,
+        "name": "Jane Smith",
+        "email": "jane@example.com",
+        "phone": "+254723456789"
+      }
+    ]
+  }
+}
