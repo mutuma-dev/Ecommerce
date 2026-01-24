@@ -10,6 +10,94 @@ import data from "@/app/data.json"
 import { motion, AnimatePresence } from "framer-motion"
 import { useShop } from "@/hooks/use-shop"
 
+/* =========================
+   Reusable Mobile Sidebar
+========================= */
+function MobileSidebar({
+  isOpen,
+  onClose,
+  user,
+  logout,
+}: {
+  isOpen: boolean
+  onClose: () => void
+  user: any
+  logout: () => void
+}) {
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="fixed inset-0 bg-black/60 z-[60] backdrop-blur-md"
+          />
+
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed right-0 top-0 h-full w-4/5 max-w-sm bg-white opacity-100 z-[70] shadow-2xl p-6 flex flex-col"
+          >
+            <div className="flex justify-between items-center mb-12">
+              <span className="text-xl font-bold text-secondary">
+                {data.site.name}
+              </span>
+              <Button variant="ghost" size="icon" onClick={onClose}>
+                <X className="w-6 h-6" />
+              </Button>
+            </div>
+
+            <div className="flex flex-col gap-6">
+              {data.navigation.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  onClick={onClose}
+                  className="text-xl font-medium text-gray-800 hover:text-primary border-b border-gray-100 pb-2"
+                >
+                  {item.label}
+                </Link>
+              ))}
+
+              {user && (
+                <Link
+                  href="/profile"
+                  onClick={onClose}
+                  className="text-xl font-medium text-gray-800 hover:text-primary border-b border-gray-100 pb-2 flex items-center gap-2"
+                >
+                  <User className="w-5 h-5" /> Profile
+                </Link>
+              )}
+            </div>
+
+            <div className="mt-auto flex flex-col gap-3">
+              {user ? (
+                <Button
+                  variant="destructive"
+                  onClick={() => {
+                    logout()
+                    onClose()
+                  }}
+                  className="w-full h-12 text-lg"
+                >
+                  Logout
+                </Button>
+              ) : (
+                <AuthModals onAuthSuccess={onClose} />
+              )}
+            </div>
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
+  )
+}
+
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { user, logout, cart } = useShop()
@@ -21,7 +109,9 @@ export function Navbar() {
           <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform">
             {data.site.logo}
           </div>
-          <span className="text-2xl font-bold tracking-tight text-secondary">{data.site.name}</span>
+          <span className="text-2xl font-bold tracking-tight text-secondary">
+            {data.site.name}
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -70,70 +160,12 @@ export function Navbar() {
       </div>
 
       {/* Mobile Sidebar */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsMenuOpen(false)}
-              className="fixed inset-0 bg-black/40 z-[60] backdrop-blur-sm"
-            />
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 h-full w-4/5 max-w-sm bg-white z-[70] shadow-2xl p-6 flex flex-col"
-            >
-              <div className="flex justify-between items-center mb-12">
-                <span className="text-xl font-bold text-secondary">{data.site.name}</span>
-                <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(false)}>
-                  <X className="w-6 h-6" />
-                </Button>
-              </div>
-              <div className="flex flex-col gap-6">
-                {data.navigation.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="text-xl font-medium text-gray-800 hover:text-primary border-b border-gray-100 pb-2"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-                {user && (
-                  <Link
-                    href="/profile"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="text-xl font-medium text-gray-800 hover:text-primary border-b border-gray-100 pb-2 flex items-center gap-2"
-                  >
-                    <User className="w-5 h-5" /> Profile
-                  </Link>
-                )}
-              </div>
-              <div className="mt-auto flex flex-col gap-3">
-                {user ? (
-                  <Button
-                    variant="destructive"
-                    onClick={() => {
-                      logout()
-                      setIsMenuOpen(false)
-                    }}
-                    className="w-full h-12 text-lg"
-                  >
-                    Logout
-                  </Button>
-                ) : (
-                  <AuthModals onAuthSuccess={() => setIsMenuOpen(false)} />
-                )}
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+      <MobileSidebar
+        isOpen={isMenuOpen}
+        onClose={() => setIsMenuOpen(false)}
+        user={user}
+        logout={logout}
+      />
     </nav>
   )
 }
