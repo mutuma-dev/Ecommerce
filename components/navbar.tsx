@@ -33,7 +33,7 @@ function MobileSidebar({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/60 z-[60] backdrop-blur-md"
+            className="fixed inset-0 bg-black/60 backdrop-blur-md z-[100]"
           />
 
           <motion.div
@@ -41,7 +41,7 @@ function MobileSidebar({
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed right-0 top-0 h-full w-4/5 max-w-sm bg-white opacity-100 z-[70] shadow-2xl p-6 flex flex-col"
+            className="fixed right-0 top-0 h-full w-4/5 max-w-sm bg-white z-[110] shadow-2xl p-6 flex flex-col"
           >
             <div className="flex justify-between items-center mb-12">
               <span className="text-xl font-bold text-secondary">
@@ -103,61 +103,67 @@ export function Navbar() {
   const { user, logout, cart } = useShop()
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-100">
-      <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform">
-            {data.site.logo}
-          </div>
-          <span className="text-2xl font-bold tracking-tight text-secondary">
-            {data.site.name}
-          </span>
-        </Link>
+    <>
+      <nav className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div className="container mx-auto px-4 h-20 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform">
+              {data.site.logo}
+            </div>
+            <span className="text-2xl font-bold tracking-tight text-secondary">
+              {data.site.name}
+            </span>
+          </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-8">
-          {data.navigation.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="text-sm font-medium text-gray-600 hover:text-primary transition-colors"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-
-        <div className="hidden lg:flex items-center gap-4">
-          {user ? (
-            <>
-              <CartDrawer />
-              <Link href="/profile">
-                <Button variant="ghost" size="icon">
-                  <User className="w-5 h-5" />
-                </Button>
-              </Link>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={logout}
-                className="text-red-500 hover:text-red-600 hover:bg-red-50"
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-8">
+            {data.navigation.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="text-sm font-medium text-gray-600 hover:text-primary transition-colors"
               >
-                <LogOut className="w-5 h-5" />
-              </Button>
-            </>
-          ) : (
-            <AuthModals />
-          )}
-        </div>
+                {item.label}
+              </Link>
+            ))}
+          </div>
 
-        {/* Mobile Menu Button */}
-        <div className="lg:hidden flex items-center gap-4">
-          {user && <CartDrawer />}
-          <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(true)}>
-            <Menu className="w-6 h-6" />
-          </Button>
+          <div className="hidden lg:flex items-center gap-4">
+            {user ? (
+              <>
+                <CartDrawer />
+                <Link href="/profile">
+                  <Button variant="ghost" size="icon">
+                    <User className="w-5 h-5" />
+                  </Button>
+                </Link>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={logout}
+                  className="text-red-500 hover:text-red-600 hover:bg-red-50"
+                >
+                  <LogOut className="w-5 h-5" />
+                </Button>
+              </>
+            ) : (
+              <AuthModals />
+            )}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="lg:hidden flex items-center gap-4">
+            {user && <CartDrawer />}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMenuOpen(true)}
+            >
+              <Menu className="w-6 h-6" />
+            </Button>
+          </div>
         </div>
-      </div>
+      </nav>
 
       {/* Mobile Sidebar */}
       <MobileSidebar
@@ -166,6 +172,6 @@ export function Navbar() {
         user={user}
         logout={logout}
       />
-    </nav>
+    </>
   )
 }
