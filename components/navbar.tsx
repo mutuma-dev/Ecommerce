@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Menu, X, User, LogOut } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -41,9 +41,9 @@ function MobileSidebar({
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed right-0 top-0 h-full w-4/5 max-w-sm bg-white z-[110] shadow-2xl p-6 flex flex-col"
+            className="fixed right-0 top-0 h-full w-[78vw] max-w-[320px] bg-white z-[110] shadow-2xl p-6 flex flex-col"
           >
-            <div className="flex justify-between items-center mb-12">
+            <div className="flex justify-between items-center mb-10">
               <span className="text-xl font-bold text-secondary">
                 {data.site.name}
               </span>
@@ -58,7 +58,7 @@ function MobileSidebar({
                   key={item.label}
                   href={item.href}
                   onClick={onClose}
-                  className="text-xl font-medium text-gray-800 hover:text-primary border-b border-gray-100 pb-2"
+                  className="text-lg font-medium text-gray-800 hover:text-primary border-b border-gray-100 pb-2"
                 >
                   {item.label}
                 </Link>
@@ -68,7 +68,7 @@ function MobileSidebar({
                 <Link
                   href="/profile"
                   onClick={onClose}
-                  className="text-xl font-medium text-gray-800 hover:text-primary border-b border-gray-100 pb-2 flex items-center gap-2"
+                  className="text-lg font-medium text-gray-800 hover:text-primary border-b border-gray-100 pb-2 flex items-center gap-2"
                 >
                   <User className="w-5 h-5" /> Profile
                 </Link>
@@ -83,7 +83,7 @@ function MobileSidebar({
                     logout()
                     onClose()
                   }}
-                  className="w-full h-12 text-lg"
+                  className="w-full h-11 text-base"
                 >
                   Logout
                 </Button>
@@ -101,6 +101,14 @@ function MobileSidebar({
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { user, logout, cart } = useShop()
+
+  /* Lock background scroll when sidebar is open */
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? "hidden" : ""
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [isMenuOpen])
 
   return (
     <>
